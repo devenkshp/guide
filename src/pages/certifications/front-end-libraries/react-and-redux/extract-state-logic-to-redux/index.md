@@ -35,3 +35,22 @@ let store = {
   }
 };
 ```
+## Alternative solution:
+
+```javascript
+const ADD = 'ADD';
+
+const addMessage = (msg) => {
+  return {type: ADD, message: msg};
+}
+
+const messageReducer = (state = [], action) => {
+  if(action.type === ADD) {
+     return ([...state, action.message]);
+  }
+  return state;
+}
+
+const store = Redux.createStore(messageReducer);
+```
+
